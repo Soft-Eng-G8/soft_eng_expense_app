@@ -16,6 +16,12 @@ class ExpenseController extends Controller {
         }
     }
 
+    public function edit($id) {
+        $model = $this->loadModel('Expense');
+        $model->edit($id);
+        header('Location: /public_html');
+    }
+
     public function delete($id) {
         $model = $this->loadModel('Expense');
         $model->delete($id);

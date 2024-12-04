@@ -14,6 +14,7 @@ else $action = 'index';
 require_once __DIR__ . '/../controllers/' . $controller . '.php';
 
 $instance = new $controller();
+print_r($vars);
 call_user_func([$instance, $action], $vars['id']);
 
 ?>
