@@ -17,8 +17,16 @@ class ExpenseController extends Controller {
     }
 
     public function edit($id) {
-        $model = $this->loadModel('Expense');
-        $model->edit($id);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $model = $this->loadModel('Expense');
+            $model->edit($_POST['title'], $_POST['amount']);
+            header('Location: /public_html');
+        } else {
+            $model = $this->loadModel('Expense');
+            $expense = $model->get($id);
+            $this->loadView('expenses/edit', ['expense' => $expense]);
+        }
+
         header('Location: /public_html');
     }
 

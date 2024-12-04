@@ -8,7 +8,7 @@ class Expense extends Model {
 
     public function get($id) {
         $stmt = $this->db->prepare("SELECT * FROM expenses WHERE id = :id");
-        $stmt.bindParam(':id', $id);
+        $stmt->bindParam(':id', $id);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
