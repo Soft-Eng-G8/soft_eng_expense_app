@@ -12,6 +12,7 @@
             <li>
                 <?= htmlspecialchars($expense['title']) ?> - $<?= htmlspecialchars($expense['amount']) ?>
                 <a href="?module=expense&action=delete&id=<?= $expense['id'] ?>">Delete</a>
+                <a href="?module=expense&action=edit&id=<?= $expense['id'] ?>">Edit</a>
             </li>
         <?php endforeach; ?>
     </ul>
